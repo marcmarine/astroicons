@@ -1,0 +1,9 @@
+{
+  "name": "astroicons",
+  "version": "0.1.0",
+  "description": "An open-source SVG icon set, free under the MIT license.",
+  "license": "MIT",
+  "files": [
+    "icons"
+  ]
+}
