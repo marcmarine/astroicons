@@ -1,0 +1,9 @@
+body {
+  background:
+    radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),
+    radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),
+    radial-gradient(circle at 80% 70%, #ff800070 0%, transparent 80%),
+    radial-gradient(circle at 50% 80%, #ff008090 0%, transparent 80%),
+    radial-gradient(circle at 90% 40%, #ff008010 0%, transparent 80%),
+    radial-gradient(circle at 10% 90%, #0d00ff88 0%, transparent 80%), #000;
+}

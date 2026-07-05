@@ -1,0 +1,132 @@
+:root {
+	--star-small: 0.2px;
+	--star-medium: 0.4px;
+	--star-large: 0.8px;
+
+	--star-small-fade: 1.4px;
+	--star-medium-fade: 1.8px;
+	--star-large-fade: 2px;
+
+	--star-small-opacity: 0.2;
+	--star-medium-opacity: 0.4;
+	--star-large-color: #ffffff22;
+
+	--grid-small: 100px;
+	--grid-medium: 220px;
+	--grid-large: 400px;
+}
+
+
+.star-field {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	will-change: transform;
+
+	background-image:
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-small-opacity)) var(--star-small),
+			transparent var(--star-small-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-small-opacity)) var(--star-small),
+			transparent var(--star-small-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-small-opacity)) var(--star-small),
+			transparent var(--star-small-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-small-opacity)) var(--star-small),
+			transparent var(--star-small-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-medium-opacity)) var(--star-medium),
+			transparent var(--star-medium-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-medium-opacity)) var(--star-medium),
+			transparent var(--star-medium-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-medium-opacity)) var(--star-medium),
+			transparent var(--star-medium-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-medium-opacity)) var(--star-medium),
+			transparent var(--star-medium-fade)
+		),
+		radial-gradient(
+			circle,
+			rgba(255, 255, 255, var(--star-medium-opacity)) var(--star-medium),
+			transparent var(--star-medium-fade)
+		),
+		radial-gradient(
+			circle,
+			var(--star-large-color) var(--star-large),
+			transparent var(--star-large-fade)
+		),
+		radial-gradient(
+			circle,
+			var(--star-large-color) var(--star-large),
+			transparent var(--star-large-fade)
+		),
+		radial-gradient(
+			circle,
+			var(--star-large-color) var(--star-large),
+			transparent var(--star-large-fade)
+		),
+		radial-gradient(
+			circle,
+			var(--star-large-color) var(--star-large),
+			transparent var(--star-large-fade)
+		),
+		radial-gradient(
+			circle,
+			var(--star-large-color) var(--star-large),
+			transparent var(--star-large-fade)
+		);
+
+	background-size:
+		var(--grid-small) var(--grid-small),
+		var(--grid-small) var(--grid-small),
+		var(--grid-small) var(--grid-small),
+		var(--grid-small) var(--grid-small),
+		var(--grid-medium) var(--grid-medium),
+		var(--grid-medium) var(--grid-medium),
+		var(--grid-medium) var(--grid-medium),
+		var(--grid-medium) var(--grid-medium),
+		var(--grid-medium) var(--grid-medium),
+		var(--grid-large) var(--grid-large),
+		var(--grid-large) var(--grid-large),
+		var(--grid-large) var(--grid-large),
+		var(--grid-large) var(--grid-large),
+		var(--grid-large) var(--grid-large);
+
+	background-position:
+		10px 12px,
+		55px 40px,
+		30px 70px,
+		75px 80px,
+		20px 25px,
+		80px 15px,
+		45px 90px,
+		110px 60px,
+		15px 110px,
+		30px 40px,
+		120px 20px,
+		70px 100px,
+		150px 140px,
+		20px 150px;
+
+	background-repeat: repeat;
+}
