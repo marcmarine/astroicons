@@ -1,4 +1,5 @@
 import { REPO_URL } from "../lib/constants";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
 	return (
@@ -6,7 +7,8 @@ export default function Header() {
 			<div className="flex items-center">
 				<h1 className="text-xl font-bold">Astroicons</h1>
 			</div>
-			<div className="flex gap-2">
+      <div className="flex gap-2">
+        <ThemeToggle />
 				<a href={REPO_URL} className="p-2 text-sm hover:underline">
 					GitHub
 				</a>

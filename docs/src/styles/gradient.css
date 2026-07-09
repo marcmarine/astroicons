@@ -1,9 +1,19 @@
 body {
-  background:
-    radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),
-    radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),
-    radial-gradient(circle at 80% 70%, #ff800070 0%, transparent 80%),
-    radial-gradient(circle at 50% 80%, #ff008090 0%, transparent 80%),
-    radial-gradient(circle at 90% 40%, #ff008010 0%, transparent 80%),
-    radial-gradient(circle at 10% 90%, #0d00ff88 0%, transparent 80%), #000;
+	background:
+		radial-gradient(circle at 10% 10%, #ff00ff42 0%, transparent 80%),
+		radial-gradient(circle at 10% 10%, #ff00ff12 0%, transparent 80%),
+		radial-gradient(circle at 120% 70%, #ff800098 0%, transparent 80%),
+		radial-gradient(circle at 50% 80%, #ff008025 0%, transparent 80%),
+		radial-gradient(circle at 90% 40%, #ff008010 0%, transparent 80%),
+		radial-gradient(circle at 0% 80%, #0d00ff90 0%, transparent 80%), #b4ffd4;
+}
+
+:root.dark body {
+	background:
+		radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),
+		radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),
+		radial-gradient(circle at 80% 70%, #ff800070 0%, transparent 80%),
+		radial-gradient(circle at 50% 80%, #ff008090 0%, transparent 80%),
+		radial-gradient(circle at 90% 40%, #ff008010 0%, transparent 80%),
+		radial-gradient(circle at 10% 90%, #0d00ff88 0%, transparent 80%), #000000;
 }

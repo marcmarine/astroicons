@@ -3,16 +3,28 @@
 @import "./styles/noise.css";
 @import "./styles/stars.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	--color-primary: #006b99;
+	--border-color: color-mix(in oklab, black 8%, transparent);
+	color: #1a1a1a;
+	background-color: #ffffff;
+}
+
+:root.dark {
+	--color-primary: #00ccff;
+	--border-color: color-mix(in oklab, var(--color-white) 8%, transparent);
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+}
+
 :root {
 	--font-family-base: "Figtree", sans-serif;
 	--font-family-heading: "EB Garamond", serif;
-	--color-primary: #00ccff;
 	--color-white: #ffffff;
-	--border-color: color-mix(in oklab, var(--color-white) 8%, transparent);
 
 	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -27,4 +39,5 @@ h2 {
 
 body {
 	font-family: var(--font-family-base);
+	transition: background 400ms ease-in-out;
 }
