@@ -19,7 +19,7 @@ export default function IconCard({
 	nonScalingStroke,
 }: IconCardProps) {
 	return (
-		<div className="hover:border-white/20 flex flex-col items-center gap-4 rounded-lg bg-white/2 p-4 focus:border-neutral-600 border border-(--border-color) aspect-square overflow-hidden transition-all duration-400">
+		<div className="flex flex-col items-center gap-4 rounded-lg bg-white/2 p-4 focus:border-neutral-600 border border-(--border-color) aspect-square overflow-hidden transition-all duration-400">
 			<Icon
 				name={name}
 				size={size}
