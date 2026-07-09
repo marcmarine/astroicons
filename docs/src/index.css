@@ -6,7 +6,7 @@
 :root {
 	--font-family-base: "Figtree", sans-serif;
 	--font-family-heading: "EB Garamond", serif;
-	--color-primary: cyan;
+	--color-primary: #00ccff;
 	--color-white: #ffffff;
 	--border-color: color-mix(in oklab, var(--color-white) 8%, transparent);
 
