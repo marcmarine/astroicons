@@ -4,6 +4,8 @@
 @import "./styles/stars.css";
 
 :root {
+	--font-family-base: "Figtree", sans-serif;
+	--font-family-heading: "EB Garamond", serif;
 	--color-primary: cyan;
 	--color-white: #ffffff;
 	--border-color: color-mix(in oklab, var(--color-white) 8%, transparent);
@@ -17,4 +19,12 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+}
+
+h2 {
+	font-family: var(--font-family-heading);
+}
+
+body {
+	font-family: var(--font-family-base);
 }
