@@ -6,7 +6,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-	--color-primary: #006b99;
+	--color-primary: #722687;
 	--border-color: color-mix(in oklab, black 8%, transparent);
 	color: #1a1a1a;
 	background-color: #ffffff;
@@ -39,5 +39,7 @@ h2 {
 
 body {
 	font-family: var(--font-family-base);
-	transition: background 400ms ease-in-out;
+	transition:
+		background 200ms ease-in-out,
+		color 200ms ease-in-out;
 }

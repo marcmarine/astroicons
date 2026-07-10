@@ -7,12 +7,12 @@ export default function Hero() {
 			<h4 className="mb-2 text-sm opacity-40">
 				{icons.length} icons · free, open-source icons, ready to use
 			</h4>
-			<h2 className="mb-2 text-6xl md:text-[8vw] xl:text-8xl text-balance font-semibold">
+			<h2 className="mb-4 text-6xl md:text-[8vw] xl:text-8xl text-balance font-semibold">
 				<span className="text-(--color-primary)">Astronomical</span> symbols
 				<br className="hidden sm:block" /> for the modern web
 			</h2>
 			<p className="text-lg md:text-2xl text-pretty font-medium">
-				A complete collection of SVG icons for{" "}
+				A collection of SVG icons for{" "}
 				<span className="text-(--color-primary)">planets</span>,{" "}
 				<span className="text-(--color-primary)">zodiac signs</span>,{" "}
 				<span className="text-(--color-primary)">astrological aspects</span> and
@@ -21,7 +21,7 @@ export default function Hero() {
 			<div className="mt-8 flex justify-center flex-col-reverse sm:flex-row gap-2">
 				<a
 					href={SYMBOLS_URL}
-					className="p-2 flex items-center gap-2 rounded bg-white/4 hover:bg-white/8 active:bg-white/6"
+					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/10 dark:active:bg-white/6"
 					target="__blank"
 				>
 					<svg
@@ -43,7 +43,7 @@ export default function Hero() {
 				</a>
 				<a
 					href={FIGMA_URL}
-					className="p-2 flex items-center gap-2 rounded bg-white/4 hover:bg-white/8 active:bg-white/6"
+					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/10 dark:active:bg-white/6"
 					target="__blank"
 				>
 					<svg

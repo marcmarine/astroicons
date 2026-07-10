@@ -1,4 +1,5 @@
 import { ASPECTS, PLANETS, SIGNS, type Symbols } from "western-signs";
+import { capitalize } from "./utils";
 
 export interface Category {
 	name: string;
@@ -58,8 +59,10 @@ export const categories: Category[] = [
 	},
 ];
 
-const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-
 export const icons: IconData[] = categories.flatMap((cat) =>
-	cat.items.map((name) => ({ name, display: cap(name), category: cat.name })),
+	cat.items.map((name) => ({
+		name,
+		display: capitalize(name),
+		category: cat.name,
+	})),
 );
