@@ -7,11 +7,11 @@ export default function Hero() {
 			<h4 className="mb-2 text-sm opacity-40">
 				{icons.length} icons · free, open-source icons, ready to use
 			</h4>
-			<h2 className="mb-4 text-6xl md:text-[8vw] xl:text-8xl text-balance font-semibold">
+			<h2 className="mb-4 text-5xl md:text-[8vw] xl:text-8xl text-balance font-semibold">
 				<span className="text-(--color-primary)">Astronomical</span> symbols
 				<br className="hidden sm:block" /> for the modern web
 			</h2>
-			<p className="text-lg md:text-2xl text-pretty font-medium">
+			<p className="md:text-2xl text-pretty font-medium">
 				A collection of SVG icons for{" "}
 				<span className="text-(--color-primary)">planets</span>,{" "}
 				<span className="text-(--color-primary)">zodiac signs</span>,{" "}
