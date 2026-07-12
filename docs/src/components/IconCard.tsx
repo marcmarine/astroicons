@@ -1,5 +1,5 @@
-import { Link } from "wouter";
 import type { Symbols } from "western-signs";
+import { Link } from "wouter";
 import Icon from "./Icon";
 
 interface IconCardProps {
