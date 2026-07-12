@@ -7,16 +7,18 @@
 
 :root {
 	--color-primary: #722687;
+	--color-base: #241627;
+	--color-base-inverted: #f4e1e5;
 	--border-color: color-mix(in oklab, black 8%, transparent);
-	color: #241627;
-	background-color: #ffffff;
+	--background-color: #ffffff;
 }
 
 :root.dark {
 	--color-primary: #00ccff;
+	--color-base: #f4e1e5;
+	--color-base-inverted: #241627;
 	--border-color: color-mix(in oklab, var(--color-white) 8%, transparent);
-	color: #f4e1e5;
-	background-color: #242424;
+	--background-color: #242424;
 }
 
 :root {
@@ -38,5 +40,7 @@ h2 {
 }
 
 body {
+	background-color: var(--background-color);
+	color: var(--color-base);
 	font-family: var(--font-family-base);
 }
