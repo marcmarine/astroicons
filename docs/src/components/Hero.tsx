@@ -18,11 +18,11 @@ export default function Hero() {
 				<span className="text-(--color-primary)">astrological aspects</span> and
 				more.
 			</p>
-			<div className="mt-8 flex justify-center flex-col-reverse sm:flex-row gap-2">
+			<div className="mt-8 flex justify-center gap-2">
 				<a
 					href={SYMBOLS_URL}
 					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/10 dark:active:bg-white/6"
-					target="__blank"
+					target="_blank"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ export default function Hero() {
 				<a
 					href={FIGMA_URL}
 					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/10 dark:active:bg-white/6"
-					target="__blank"
+					target="_blank"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
