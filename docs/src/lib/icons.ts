@@ -14,6 +14,21 @@ export interface IconData {
 
 export const categories: Category[] = [
 	{
+		name: "Planets",
+		items: [
+			PLANETS.SUN,
+			PLANETS.MOON,
+			PLANETS.MERCURY,
+			PLANETS.VENUS,
+			PLANETS.MARS,
+			PLANETS.JUPITER,
+			PLANETS.SATURN,
+			PLANETS.URANUS,
+			PLANETS.NEPTUNE,
+			PLANETS.PLUTO,
+		],
+	},
+	{
 		name: "Signs",
 		items: [
 			SIGNS.ARIES,
@@ -28,21 +43,6 @@ export const categories: Category[] = [
 			SIGNS.CAPRICORN,
 			SIGNS.AQUARIUS,
 			SIGNS.PISCES,
-		],
-	},
-	{
-		name: "Planets",
-		items: [
-			PLANETS.SUN,
-			PLANETS.MOON,
-			PLANETS.MERCURY,
-			PLANETS.VENUS,
-			PLANETS.MARS,
-			PLANETS.JUPITER,
-			PLANETS.SATURN,
-			PLANETS.URANUS,
-			PLANETS.NEPTUNE,
-			PLANETS.PLUTO,
 		],
 	},
 	{
