@@ -29,7 +29,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 
 	return (
 		<div className="p-4 flex flex-wrap gap-4 rounded-lg border border-(--border-color) backdrop-blur-xl">
-			<div className="p-2 w-full border border-(--border-color) rounded-md sm:flex-1 flex items-center justify-center aspect-square">
+			<div className="p-2 w-full border border-(--border-color) rounded-md sm:flex-1 flex items-center justify-center aspect-square sm:max-w-xs">
 				<Icon name={icon.name} size="100%" strokeWidth={1.5} />
 			</div>
 			<div className="flex-1 flex flex-wrap">
