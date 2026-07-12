@@ -11,7 +11,7 @@ export default function IconGrid() {
 		<>
 			<div className="px-3 pt-2 text-right">
 				<p className="text-[10px] font-mono opacity-60">
-					24x24 · currentColor stroke · 1px stroke width
+					24x24, currentColor stroke, 1px stroke width
 				</p>
 			</div>
 			<div className="p-2 relative">
