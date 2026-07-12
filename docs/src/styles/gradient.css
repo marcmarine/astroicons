@@ -1,4 +1,13 @@
-body {
+body:before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -2;
+	transition:
+		background 200ms ease-in-out,
+		color 200ms ease-in-out;
+}
+body:before {
 	background:
 		radial-gradient(circle at 10% 10%, #ff00ff42 0%, transparent 80%),
 		radial-gradient(circle at 10% 10%, #ff00ff12 0%, transparent 80%),
@@ -8,7 +17,7 @@ body {
 		radial-gradient(circle at 0% 80%, #0d00ff90 0%, transparent 80%), #b4ffd4;
 }
 
-:root.dark body {
+:root.dark body:before {
 	background:
 		radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),
 		radial-gradient(circle at 10% 10%, #ff00ff22 0%, transparent 80%),

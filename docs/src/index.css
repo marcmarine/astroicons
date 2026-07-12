@@ -8,14 +8,14 @@
 :root {
 	--color-primary: #722687;
 	--border-color: color-mix(in oklab, black 8%, transparent);
-	color: #1a1a1a;
+	color: #241627;
 	background-color: #ffffff;
 }
 
 :root.dark {
 	--color-primary: #00ccff;
 	--border-color: color-mix(in oklab, var(--color-white) 8%, transparent);
-	color: rgba(255, 255, 255, 0.87);
+	color: #f4e1e5;
 	background-color: #242424;
 }
 
@@ -39,7 +39,4 @@ h2 {
 
 body {
 	font-family: var(--font-family-base);
-	transition:
-		background 200ms ease-in-out,
-		color 200ms ease-in-out;
 }
