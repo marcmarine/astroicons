@@ -15,7 +15,8 @@
 		"react": "^19.2.7",
 		"react-dom": "^19.2.7",
 		"tailwindcss": "^4.3.2",
-		"western-signs": "^1.13.6"
+		"western-signs": "^1.13.6",
+		"wouter": "^3.10.0"
 	},
 	"devDependencies": {
 		"@types/react": "^19.2.17",
