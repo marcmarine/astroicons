@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "motion/react";
 import { useRoute } from "wouter";
 import { icons } from "../lib/icons";
 import IconCard from "./IconCard";
@@ -20,11 +21,19 @@ export default function IconGrid() {
 						<IconCard key={icon.name} name={icon.name} />
 					))}
 				</div>
-				{selected && (
-					<div className="-m-0.5 mt-2.5 sticky bottom-2">
-						<SymbolDetail symbol={selected} />
-					</div>
-				)}
+				<AnimatePresence>
+					{selected && (
+						<motion.div
+							initial={{ y: "100%" }}
+							animate={{ y: 0 }}
+							exit={{ y: "102%" }}
+							transition={{ type: "spring", stiffness: 300, damping: 30 }}
+							className="-m-0.5 mt-2.5 sticky bottom-2"
+						>
+							<SymbolDetail symbol={selected} />
+						</motion.div>
+					)}
+				</AnimatePresence>
 			</div>
 		</>
 	);
