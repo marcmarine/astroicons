@@ -89,9 +89,9 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 			</div>
 			<div className="flex-1 flex flex-wrap relative">
 				<div className="flex-1 min-w-0">
-					<h2 className="text-4xl font-bold">{icon.display}</h2>
-					<h4 className="mb-1 text-sm font-mono">{icon.name}</h4>
-					<p className="mb-2 opacity-60">{icon.category}</p>
+					<h2 className="mb-1 text-4xl font-bold">{icon.display}</h2>
+					<h4 className="mb-1 font-mono">{icon.name}</h4>
+					<p className="mb-2 text-sm opacity-60">{icon.category}</p>
 				</div>
 				<div className="flex items-start gap-2">
 					<button
