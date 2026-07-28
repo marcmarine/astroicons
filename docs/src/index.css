@@ -51,7 +51,7 @@ va-code-block::part(pre-content) {
 }
 
 @media (max-width: 640px) {
-	va-code-block::part(pre-content) {
-		height: 50px;
+	va-code-block {
+		display: none;
 	}
 }
