@@ -3,8 +3,11 @@ import { getSymbol } from "western-signs";
 import { useLocation } from "wouter";
 import { copyPngToClipboard, downloadPng } from "../lib/actions";
 import { icons } from "../lib/icons";
+import { formatSvg } from "../lib/utils";
 import ActionButton from "./ActionButton";
 import Icon from "./Icon";
+
+import "va-code-block";
 
 interface SymbolDetailProps {
 	symbol: string;
@@ -78,15 +81,17 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 	];
 
 	return (
-		<div className="p-4 flex flex-wrap gap-4 rounded-lg border border-(--border-color) backdrop-blur-xl">
-			<div className="p-2 w-full border border-(--border-color) rounded-md sm:flex-1 flex items-center justify-center aspect-square sm:max-w-xs">
-				<Icon name={icon.name} size="100%" strokeWidth={1.5} />
+		<div className="p-4 flex flex-wrap gap-4 rounded-lg border border-(--border-color) backdrop-blur-xl max-h-[calc(100vh-1rem)] relative">
+			<div className="w-full sm:flex-1 flex flex-col gap-3 sm:max-w-xs">
+				<div className="p-2 border border-(--border-color) rounded-md flex items-center justify-center aspect-square">
+					<Icon name={icon.name} size="100%" strokeWidth={1.5} />
+				</div>
 			</div>
-			<div className="flex-1 flex flex-wrap">
+			<div className="flex-1 flex flex-wrap relative">
 				<div className="flex-1 min-w-0">
 					<h2 className="text-4xl font-bold">{icon.display}</h2>
 					<h4 className="mb-1 text-sm font-mono">{icon.name}</h4>
-					<p className="opacity-60">{icon.category}</p>
+					<p className="mb-2 opacity-60">{icon.category}</p>
 				</div>
 				<div className="flex items-start gap-2">
 					<button
@@ -97,6 +102,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 						Close
 					</button>
 				</div>
+				<va-code-block language="html" text={formatSvg(svg.toString())} />
 				<div className="-mx-1 -mb-1 sm:mb-0 flex-1 basis-full flex items-end justify-between mt-4">
 					<div className="flex gap-px">
 						<button

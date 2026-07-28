@@ -44,3 +44,14 @@ body {
 	color: var(--color-base);
 	font-family: var(--font-family-base);
 }
+
+va-code-block::part(pre-content) {
+	height: 100px;
+	overflow: auto;
+}
+
+@media (max-width: 640px) {
+	va-code-block::part(pre-content) {
+		height: 50px;
+	}
+}
