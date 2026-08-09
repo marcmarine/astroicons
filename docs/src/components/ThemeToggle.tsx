@@ -1,19 +1,12 @@
 import { useEffect, useState } from "react";
+import { applyTheme, getTheme, type Theme } from "../lib/theme";
 import { capitalize } from "../lib/utils";
-
-type Theme = "light" | "dark";
-
-const getPreferredTheme = (): Theme =>
-	window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
-const getTheme = (): Theme =>
-	(localStorage.getItem("theme") as Theme | null) ?? getPreferredTheme();
 
 export default function ThemeToggle() {
 	const [theme, setTheme] = useState<Theme>(getTheme);
 
 	useEffect(() => {
-		document.documentElement.classList.toggle("dark", theme === "dark");
+		applyTheme(theme);
 		localStorage.setItem("theme", theme);
 	}, [theme]);
 
