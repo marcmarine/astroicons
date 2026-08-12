@@ -1,9 +1,18 @@
 {
-  "name": "astroicons",
-  "version": "0.1.0",
-  "description": "An open-source SVG icon set, free under the MIT license.",
-  "license": "MIT",
-  "files": [
-    "icons"
-  ]
+	"name": "astroicons",
+	"version": "0.1.0",
+	"description": "An open-source SVG icon set, free under the MIT license.",
+	"license": "MIT",
+	"files": [
+		"icons"
+	],
+	"workspaces": [
+		"docs",
+		"packages/*"
+	],
+ "scripts": {
+    "dev": "bun run --cwd docs dev",
+    "build": "bun run --cwd packages/react build && bun run --cwd docs build",
+    "preview": "bun run --cwd docs preview"
+  }
 }
