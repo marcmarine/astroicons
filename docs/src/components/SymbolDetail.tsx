@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { Icon } from "@astroicons/react/icon";
 import { getSymbol } from "western-signs";
 import { useLocation } from "wouter";
 import { copyPngToClipboard, downloadPng } from "../lib/actions";
 import { icons } from "../lib/icons";
 import { formatSvg } from "../lib/utils";
 import ActionButton from "./ActionButton";
-import Icon from "./Icon";
 
 import "va-code-block";
 
@@ -101,8 +101,10 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 					>
 						Close
 					</button>
-				</div>
-				<va-code-block language="html" text={formatSvg(svg.toString())} />
+        </div>
+        <div className="flex-0 basis-full">
+          <va-code-block language="html" text={formatSvg(svg.toString())} />
+        </div>
 				<div className="-mx-1 -mb-1 sm:mb-0 flex-1 basis-full flex items-end justify-between mt-4">
 					<div className="flex gap-px">
 						<button

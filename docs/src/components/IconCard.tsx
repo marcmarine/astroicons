@@ -1,14 +1,12 @@
+import { Icon } from "@astroicons/react/icon";
 import type { Symbols } from "western-signs";
 import { Link } from "wouter";
-import Icon from "./Icon";
 
 interface IconCardProps {
 	name: Symbols;
 	size?: number;
 	strokeWidth?: number;
 	color?: string;
-	rounded?: boolean;
-	nonScalingStroke?: boolean;
 }
 
 export default function IconCard({
@@ -16,8 +14,7 @@ export default function IconCard({
 	size = 32,
 	strokeWidth = 1.5,
 	color,
-	rounded,
-	nonScalingStroke,
+
 }: IconCardProps) {
 	return (
 		<Link href={`/${name}`}>
@@ -27,8 +24,6 @@ export default function IconCard({
 					size={size}
 					strokeWidth={strokeWidth}
 					color={color}
-					rounded={rounded}
-					nonScalingStroke={nonScalingStroke}
 					className="inline-block flex-1 transition-all duration-200"
 				/>
 				<span className="text-xs font-light font-mono">{name}</span>
