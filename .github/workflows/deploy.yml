@@ -21,9 +21,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    defaults:
-      run:
-        working-directory: ./docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,8 +31,10 @@ jobs:
           bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
-      - name: Build
-        run: bun run build
+      - name: Build React package
+        run: bun run --cwd packages/react build
+      - name: Build docs
+        run: bun run --cwd docs build
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact
