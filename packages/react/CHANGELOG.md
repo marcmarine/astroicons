@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/marcmarine/astroicons/compare/react-v0.2.1...react-v0.2.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* Replace JSX with createElement in Icon component ([ecba8f7](https://github.com/marcmarine/astroicons/commit/ecba8f7ca3b8ce8d09a7f71983993b0c002d0ca6))
+
 ## [0.2.1](https://github.com/marcmarine/astroicons/compare/react-v0.2.0...react-v0.2.1) (2026-08-12)
 
 

@@ -1,15 +1,15 @@
 {
 	"name": "@astroicons/react",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "React components for Astroicons",
 	"license": "MIT",
 	"type": "module",
 	"author": "Marc Mariné <shenobi@gmail.com>",
 	"repository": {
-    "type": "git",
-    "url": "https://github.com/marcmarine/astroicons.git",
-    "directory": "packages/react"
-  },
+		"type": "git",
+		"url": "https://github.com/marcmarine/astroicons.git",
+		"directory": "packages/react"
+	},
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
@@ -32,15 +32,15 @@
 		"dist"
 	],
 	"homepage": "https://astroicons.com",
-  "keywords": [
-    "astrology",
-    "zodiac",
-    "horoscope",
-    "signs",
-    "icon",
-    "icons",
-    "SVG"
-  ],
+	"keywords": [
+		"astrology",
+		"zodiac",
+		"horoscope",
+		"signs",
+		"icon",
+		"icons",
+		"SVG"
+	],
 	"scripts": {
 		"generate": "bun run scripts/generate.ts",
 		"build": "bun run generate && bun scripts/build.ts && tsc --emitDeclarationOnly"
