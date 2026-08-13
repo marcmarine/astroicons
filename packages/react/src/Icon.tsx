@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { createElement, forwardRef } from "react";
 import { icons, type IconName } from "./iconRegistry";
 import type { IconProps } from "./types";
 
@@ -15,7 +15,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps & { name: IconName }>(
 			return null;
 		}
 
-		return <Component {...props} ref={ref} />;
+		return createElement(Component, { ...props, ref });
 	},
 );
 
