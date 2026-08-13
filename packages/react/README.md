@@ -1,5 +1,9 @@
 # @astroicons/react
 
+[![NPM Version](https://img.shields.io/npm/v/@astroicons/react)](https://www.npmjs.com/package/@astroicons/react)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![View Changelog](https://img.shields.io/badge/view-CHANGELOG.md-yellow.svg)](https://github.com/marcmarine/astroicons/blob/main/packages/react/CHANGELOG.md)
+
 React components for the [Astroicons](https://github.com/marcmarine/astroicons) SVG set.
 
 ## Installation
@@ -13,14 +17,14 @@ npm install @astroicons/react
 Import each icon individually as a component:
 
 ```tsx
-import { Neptune, Conjunction, Saturn } from '@astroicons/react';
+import { Sun, Conjunction, Moon } from '@astroicons/react';
 
 function App() {
   return (
     <>
-      <Neptune  />
+      <Sun />
       <Conjunction size={16} />
-      <Saturn />
+      <Moon />
     </>
   );
 }
@@ -52,4 +56,4 @@ All icon components accept:
 
 ## License
 
-MIT License
+See [LICENSE](LICENSE)
