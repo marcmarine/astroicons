@@ -1,4 +1,4 @@
-import { FIGMA_URL, SYMBOLS_URL } from "../lib/constants";
+import { DOCUMENTATION_URL, FIGMA_URL } from "../lib/constants";
 import { icons } from "../lib/icons";
 
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
 			</p>
 			<div className="mt-8 flex justify-center gap-2">
 				<a
-					href={SYMBOLS_URL}
+					href={DOCUMENTATION_URL}
 					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/10 dark:active:bg-white/6"
 					target="_blank"
 				>
