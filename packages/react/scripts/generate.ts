@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,6 +8,7 @@ const ICONS_DIR = fileURLToPath(new URL("../../../icons/", import.meta.url));
 const SRC_DIR = fileURLToPath(new URL("../src/", import.meta.url));
 const OUT_DIR = path.join(SRC_DIR, "icons");
 const REGISTRY_PATH = path.join(SRC_DIR, "iconRegistry.ts");
+const MANIFEST_PATH = path.join(SRC_DIR, "icons.manifest.json");
 
 type IconNodeElement = [
 	name: string,
@@ -25,12 +27,18 @@ const toIconNode = ({ name, attributes, children }: INode): IconNodeElement =>
 		? [name, attributes, children.map(toIconNode)]
 		: [name, attributes];
 
+const hashSvg = (svg: string) =>
+	`sha256:${createHash("sha256").update(svg).digest("hex")}`;
+
 async function main() {
 	await mkdir(OUT_DIR, { recursive: true });
-	const files = (await readdir(ICONS_DIR)).filter((f) => f.endsWith(".svg"));
+	const files = (await readdir(ICONS_DIR))
+		.filter((f) => f.endsWith(".svg"))
+		.sort((a, b) => a.localeCompare(b));
 	const exports = [];
 	const registryImports = [];
 	const registryEntries = [];
+	const manifestEntries: Record<string, string> = {};
 
 	for (const file of files) {
 		const iconName = file.replace(/\.svg$/, "");
@@ -38,6 +46,7 @@ async function main() {
 		const svg = await readFile(path.join(ICONS_DIR, file), "utf-8");
 		const ast = await parse(svg);
 		const iconNode = ast.children.map(toIconNode);
+		manifestEntries[iconName] = hashSvg(svg);
 
 		const content = `import createIcon from '../createIcon';
 
@@ -67,7 +76,13 @@ export type IconName = keyof typeof icons;
 `;
 
 	await writeFile(REGISTRY_PATH, registryContent);
-	console.log(`Generated ${files.length} icons in ${OUT_DIR}`);
+
+	const manifestContent = `${JSON.stringify({ icons: manifestEntries }, null, "\t")}\n`;
+	await writeFile(MANIFEST_PATH, manifestContent);
+
+	console.log(
+		`Generated ${files.length} icons in ${OUT_DIR} and wrote ${path.basename(MANIFEST_PATH)}`,
+	);
 }
 
 main().catch((error) => {
