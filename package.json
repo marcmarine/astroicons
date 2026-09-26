@@ -10,9 +10,10 @@
 		"docs",
 		"packages/*"
 	],
- "scripts": {
-    "dev": "bun run --cwd docs dev",
-    "build": "bun run --cwd packages/react build && bun run --cwd docs build",
-    "preview": "bun run --cwd docs preview"
-  }
+	"scripts": {
+		"dev": "bun run --filter docs dev",
+		"build": "bun run --filter @astroicons/react build && bun run --filter docs build",
+		"preview": "bun run --filter docs preview",
+		"generate": "bun run --filter @astroicons/react generate && bun run --filter @astroicons/react build"
+	}
 }
