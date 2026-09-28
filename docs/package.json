@@ -19,7 +19,7 @@
 		"react-dom": "^19.2.7",
 		"tailwindcss": "^4.3.2",
 		"va-code-block": "^0.2.0",
-		"western-signs": "^1.14.0",
+		"western-signs": "^1.14.1",
 		"wouter": "^3.10.0"
 	},
 	"devDependencies": {

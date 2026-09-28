@@ -1,9 +1,10 @@
+import { Icon, type IconName } from "@astroicons/react/icon";
 import { useEffect, useRef, useState } from "react";
-import { Icon } from "@astroicons/react/icon";
-import { getSymbol } from "western-signs";
+
 import { useLocation } from "wouter";
 import { copyPngToClipboard, downloadPng } from "../lib/actions";
 import { icons } from "../lib/icons";
+import { getIconSvg, toSvgDataUrl } from "../lib/svg";
 import { formatSvg } from "../lib/utils";
 import ActionButton from "./ActionButton";
 
@@ -34,7 +35,9 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 
 	const prev = index > 0 ? icons[index - 1] : null;
 	const next = index < icons.length - 1 ? icons[index + 1] : null;
-	const svg = getSymbol(icon.name);
+	const svg = getIconSvg(icon.name);
+	if (!svg) return null;
+
 	const close = () => navigate("/");
 
 	function showFeedback(id: string, label: string) {
@@ -48,7 +51,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 			id: "copy-svg",
 			label: feedback?.id === "copy-svg" ? feedback.label : "Copy SVG",
 			onSelect: () => {
-				navigator.clipboard.writeText(svg.toString());
+				navigator.clipboard.writeText(svg);
 				showFeedback("copy-svg", "Copied!");
 			},
 		},
@@ -57,7 +60,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 			label:
 				feedback?.id === "copy-data-url" ? feedback.label : "Copy Data URL",
 			onSelect: () => {
-				navigator.clipboard.writeText(svg.toDataURL());
+				navigator.clipboard.writeText(toSvgDataUrl(svg));
 				showFeedback("copy-data-url", "Copied!");
 			},
 		},
@@ -65,7 +68,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 			id: "copy-png",
 			label: feedback?.id === "copy-png" ? feedback.label : "Copy PNG",
 			onSelect: () => {
-				copyPngToClipboard(svg.toString());
+				copyPngToClipboard(svg);
 				showFeedback("copy-png", "Copied!");
 			},
 		},
@@ -74,7 +77,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 			label: feedback?.id === "download-png" ? feedback.label : "Download PNG",
 			onSelect: async () => {
 				showFeedback("download-png", "Downloading...");
-				await downloadPng(svg.toString(), symbol);
+				await downloadPng(svg, symbol);
 				setFeedback(null);
 			},
 		},
@@ -84,7 +87,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 		<div className="p-4 flex flex-wrap gap-4 rounded-lg border border-(--border-color) backdrop-blur-xl max-h-[calc(100vh-1rem)] relative">
 			<div className="w-full sm:flex-1 flex flex-col gap-3 sm:max-w-xs">
 				<div className="p-2 border border-(--border-color) rounded-md flex items-center justify-center aspect-square">
-					<Icon name={icon.name} size="100%" strokeWidth={1.5} />
+					<Icon name={icon.name as IconName} size="100%" strokeWidth={1.5} />
 				</div>
 			</div>
 			<div className="flex-1 flex flex-wrap relative">
@@ -101,10 +104,10 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 					>
 						Close
 					</button>
-        </div>
-        <div className="flex-0 basis-full">
-          <va-code-block language="html" text={formatSvg(svg.toString())} />
-        </div>
+				</div>
+				<div className="flex-0 basis-full">
+					<va-code-block language="html" text={formatSvg(svg)} />
+				</div>
 				<div className="-mx-1 -mb-1 sm:mb-0 flex-1 basis-full flex items-end justify-between mt-4">
 					<div className="flex gap-px">
 						<button

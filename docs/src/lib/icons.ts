@@ -1,13 +1,14 @@
-import { ASPECTS, PLANETS, SIGNS, type Symbols } from "western-signs";
+import type { IconName } from "@astroicons/react/icon";
+import { ASPECTS, PLANETS, SIGNS } from "western-signs";
 import { capitalize } from "./utils";
 
 export interface Category {
 	name: string;
-	items: Symbols[];
+	items: IconName[];
 }
 
 export interface IconData {
-	name: Symbols;
+	name: IconName;
 	display: string;
 	category: string;
 }
@@ -49,13 +50,53 @@ export const categories: Category[] = [
 		name: "Aspects",
 		items: [
 			ASPECTS.CONJUNCTION,
-			ASPECTS.SEMISEXTILE,
+			"semi-sextile",
 			ASPECTS.SEXTILE,
-			ASPECTS.QUADRATURE,
-			ASPECTS.TRIGONE,
+			ASPECTS.SQUARE,
+			ASPECTS.TRINE,
 			ASPECTS.QUINCUNX,
 			ASPECTS.OPPOSITION,
 		],
+	},
+	{
+		name: "Angles",
+		items: [
+			"ascendant",
+			"descendant",
+			"medium-coeli",
+			"imum-coeli",
+			"ascendant-alt",
+			"descendant-alt",
+		],
+	},
+	{
+		name: "Hoses",
+		items: [
+			"house-1",
+			"house-2",
+			"house-3",
+			"house-4",
+			"house-5",
+			"house-6",
+			"house-7",
+			"house-8",
+			"house-9",
+			"house-10",
+			"house-11",
+			"house-12",
+		],
+	},
+	{
+		name: "Earth and moon",
+		items: ["earth", "north-node", "south-node", "lilith"],
+	},
+	{
+		name: "Asteroids",
+		items: ["chiron"],
+	},
+	{
+		name: "Lots",
+		items: ["fortune"],
 	},
 ];
 
