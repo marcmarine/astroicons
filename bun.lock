@@ -18,7 +18,7 @@
         "react-dom": "^19.2.7",
         "tailwindcss": "^4.3.2",
         "va-code-block": "^0.2.0",
-        "western-signs": "^1.14.0",
+        "western-signs": "^1.14.1",
         "wouter": "^3.10.0",
       },
       "devDependencies": {
@@ -31,7 +31,7 @@
     },
     "packages/react": {
       "name": "@astroicons/react",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "devDependencies": {
         "@types/node": "^26.2.0",
         "@types/react": "^19.2.17",
@@ -234,7 +234,7 @@
 
     "vite": ["vite@8.2.1", "", { "dependencies": { "lightningcss": "^1.33.0", "picomatch": "^4.0.5", "postcss": "^8.5.25", "rolldown": "~1.2.1", "tinyglobby": "^0.2.17" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^20.19.0 || >=22.12.0", "@vitejs/devtools": "^0.4.0", "esbuild": "^0.27.0 || ^0.28.0", "jiti": ">=1.21.0", "less": "^4.0.0", "sass": "^1.70.0", "sass-embedded": "^1.70.0", "stylus": ">=0.54.8", "sugarss": "^5.0.0", "terser": "^5.16.0", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["@types/node", "@vitejs/devtools", "esbuild", "jiti", "less", "sass", "sass-embedded", "stylus", "sugarss", "terser", "tsx", "yaml"], "bin": { "vite": "bin/vite.js" } }, "sha512-EU/eS7BH3XROHh2YnBefjM6DBKA6ZeMZEYQbj7NLWg5wHYlhB8B/Mayd5XsgWq+NFYccDOTemRpdETWR6Ka/lw=="],
 
-    "western-signs": ["western-signs@1.14.0", "", { "peerDependencies": { "typescript": ">=5.0.0" } }, "sha512-E9/e6joNHnvpo4KGI2QFxNUYIzns2iER+23kAp2GsjdBxyWpCOXhlMp72t3VWBuwr0I8UqgiZ/FXf2DzSe7bgQ=="],
+    "western-signs": ["western-signs@1.14.1", "", { "peerDependencies": { "typescript": ">=5.0.0" } }, "sha512-k0DXKwqUP7H6HOQuKaXiP4DvR9eOCwWwbQWiE32TTW0gSBucaiwlm8dVWCpAnNAMp5ZfcbCeiVGYu70dmvav2Q=="],
 
     "wouter": ["wouter@3.10.0", "", { "dependencies": { "mitt": "^3.0.1", "regexparam": "^3.0.0", "use-sync-external-store": "^1.0.0" }, "peerDependencies": { "react": ">=16.8.0" } }, "sha512-zTfddD80zc2/J5l8JKcdvzOK6AwP0kpyHEI3DxRN2bn8U1oJPnrSVm8v+X3WwDamvLAOxTO7ZvkxkpRWlyeJ1Q=="],
 
