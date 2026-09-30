@@ -10,25 +10,31 @@ export default function IconGrid() {
 	const selected = params?.symbol;
 
 	const { query } = useSearch();
-	const filteredIcons = icons.filter((icon) =>
-		icon.name.toLowerCase().includes(query.toLowerCase()),
-	);
+	const searchTerm = query.trim();
+	const normalizedQuery = searchTerm.toLowerCase();
+	const filteredIcons = normalizedQuery
+		? icons.filter((icon) =>
+				[icon.name, icon.category].some((value) =>
+					value.toLowerCase().includes(normalizedQuery),
+				),
+			)
+		: icons;
 
 	return (
 		<>
 			<div
 				className={[
 					"px-3 pt-2 mb-0.5 flex items-center",
-					query ? "justify-between" : "justify-end",
+					searchTerm ? "justify-between" : "justify-end",
 				]
 					.filter(Boolean)
 					.join(" ")}
 			>
-				{query && (
+				{searchTerm && (
 					<p className="text-[10px] font-mono opacity-60">
 						{filteredIcons.length === 0
-							? `No icons found for “${query}”`
-							: `${filteredIcons.length} ${filteredIcons.length === 1 ? "icon" : "icons"} found for “${query}”`}
+							? `No icons found for “${searchTerm}”`
+							: `${filteredIcons.length} ${filteredIcons.length === 1 ? "icon" : "icons"} found for “${searchTerm}”`}
 					</p>
 				)}
 				<p className="text-[10px] font-mono opacity-60">

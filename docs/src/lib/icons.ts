@@ -70,7 +70,7 @@ export const categories: Category[] = [
 		],
 	},
 	{
-		name: "Hoses",
+		name: "Houses",
 		items: [
 			"house-1",
 			"house-2",
