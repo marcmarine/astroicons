@@ -26,7 +26,9 @@ export default function IconGrid() {
 			>
 				{query && (
 					<p className="text-[10px] font-mono opacity-60">
-						{`${filteredIcons.length} results for the word "${query}"`}
+						{filteredIcons.length === 0
+							? `No icons found for “${query}”`
+							: `${filteredIcons.length} ${filteredIcons.length === 1 ? "icon" : "icons"} found for “${query}”`}
 					</p>
 				)}
 				<p className="text-[10px] font-mono opacity-60">

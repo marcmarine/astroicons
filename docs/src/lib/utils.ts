@@ -16,3 +16,7 @@ export function formatSvg(svg: string): string {
 		})
 		.join("\n");
 }
+
+export function escapeRegExp(value: string): string {
+	return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
