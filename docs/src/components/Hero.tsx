@@ -21,7 +21,7 @@ export default function Hero() {
 			<div className="mt-8 flex justify-center gap-2">
 				<a
 					href={DOCUMENTATION_URL}
-					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/10 dark:active:bg-white/6"
+					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/6 dark:active:bg-white/8 transition active:duration-0"
 					target="_blank"
 				>
 					<svg
@@ -43,7 +43,7 @@ export default function Hero() {
 				</a>
 				<a
 					href={FIGMA_URL}
-					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/10 dark:active:bg-white/6"
+					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/6 dark:active:bg-white/8 transition active:duration-0"
 					target="_blank"
 				>
 					<svg

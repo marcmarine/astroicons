@@ -29,7 +29,7 @@ export default function Header() {
 				<button
 					type="button"
 					onClick={focusSearch}
-					className="px-1 py-0.5 pl-2 items-center gap-2 text-sm rounded border border-(--border-color) cursor-pointer relative z-10 hidden sm:flex"
+					className="px-1 py-0.5 pl-2 items-center gap-2 text-sm rounded border border-(--border-color) cursor-pointer relative z-10 hidden sm:flex hover:bg-black/2 transition duration-500 active:bg-black/5 active:duration-0 dark:hover:bg-white/2 dark:active:bg-white/5"
 				>
 					Search
 					<kbd className="px-1 py-0.5 font-mono flex items-center gap-1 text-xs border border-(--border-color) rounded">
