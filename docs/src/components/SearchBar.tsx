@@ -1,11 +1,17 @@
-import { useRef } from "react";
+import { useKeyboardShortcuts } from "../hooks/useKeyboardShortcuts";
 import { useSearch } from "../hooks/useSearch";
-import { scrollToToolbar } from "../lib/utils";
 
 export default function SearchBar() {
-	const inputRef = useRef<HTMLInputElement>(null);
-	const { query, handleChange } = useSearch();
-	const scrollToSearch = () => scrollToToolbar(inputRef.current);
+	const { query, handleChange, inputRef, scrollToSearch, focusSearch } =
+		useSearch();
+
+	useKeyboardShortcuts([
+		{
+			key: "k",
+			meta: true,
+			action: focusSearch,
+		},
+	]);
 
 	return (
 		<input
