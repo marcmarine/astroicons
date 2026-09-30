@@ -1,5 +1,9 @@
 export const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
+export function scrollToToolbar(toolbar: HTMLElement | null) {
+	toolbar?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function formatSvg(svg: string): string {
 	const indent = "  ";
 	return svg
