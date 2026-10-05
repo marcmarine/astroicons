@@ -24,7 +24,7 @@ export default function IconGrid() {
 		<>
 			<div
 				className={[
-					"px-3 pt-2 mb-0.5 flex items-center",
+					"px-3 pt-2 mb-0.5 flex md:items-center flex-col md:flex-row gap-1",
 					searchTerm ? "justify-between" : "justify-end",
 				]
 					.filter(Boolean)
@@ -41,31 +41,32 @@ export default function IconGrid() {
 					24x24, currentColor stroke, 1px stroke width
 				</p>
 			</div>
-			<div className="p-2 relative pb-6">
+			<div className="relative p-2 pb-6 flex-1">
 				<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 gap-2">
 					{filteredIcons.map((icon) => (
 						<IconCard key={icon.name} name={icon.name} />
 					))}
 				</div>
-				<AnimatePresence>
-					{selected && (
-						<motion.div
-							initial={{ y: "100%", opacity: 1, filter: "blur(10px)" }}
-							animate={{
-								y: 0,
-								opacity: 1,
-								filter: "blur(0)",
-								backdropFilter: "blur(24px)",
-							}}
-							exit={{ y: "102%", opacity: 0, filter: "blur(10px)" }}
-							transition={{ type: "spring", stiffness: 300, damping: 30 }}
-							className="-m-0.5 mt-2.5 sticky bottom-2"
-						>
-							<SymbolDetail symbol={selected} />
-						</motion.div>
-					)}
-				</AnimatePresence>
+				<div className="fixed inset-x-0 bottom-0 backdrop-blur-xl h-[20vh] transform rotate-180 mask-[linear-gradient(#000,transparent_85%,transparent)] pointer-events-none"></div>
 			</div>
+			<AnimatePresence>
+				{selected && (
+					<motion.div
+						initial={{ y: "100%", opacity: 1, filter: "blur(10px)" }}
+						animate={{
+							y: 0,
+							opacity: 1,
+							filter: "blur(0)",
+							backdropFilter: "blur(24px)",
+						}}
+						exit={{ y: "102%", opacity: 0, filter: "blur(10px)" }}
+						transition={{ type: "spring", stiffness: 300, damping: 30 }}
+						className="mx-1 my-2.5 sticky bottom-2 z-20"
+					>
+						<SymbolDetail symbol={selected} />
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</>
 	);
 }

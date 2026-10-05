@@ -28,7 +28,7 @@ export default function IconCard({
 					color={color}
 					className="inline-block flex-1 transition-all duration-200"
 				/>
-				<span className="text-xs font-light font-mono">
+				<span className="text-xs font-light font-mono text-center">
 					<HighlightedText text={name} highlight={highlight} />
 				</span>
 			</div>

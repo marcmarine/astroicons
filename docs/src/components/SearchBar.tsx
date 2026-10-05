@@ -37,18 +37,23 @@ export default function SearchBar() {
 				aria-hidden="true"
 				className="block h-px -mb-px"
 			/>
-			<input
-				ref={inputRef}
-				type="text"
-				placeholder="Search..."
-				value={query}
-				onChange={(event) => {
-					handleChange(event);
-					scrollToSearch();
-				}}
-				onFocus={scrollToSearch}
-				className={`sticky top-0 z-10 px-4 h-[4.5rem] w-full focus:outline-none border-b border-b-(--border-color) transition duration-800 ${hasScrolledPastInput ? "backdrop-blur-2xl" : ""}`}
-			/>
+			<div className="sticky top-0 z-10">
+				<input
+					ref={inputRef}
+					type="text"
+					placeholder="Search..."
+					value={query}
+					onChange={(event) => {
+						handleChange(event);
+						scrollToSearch();
+					}}
+					onFocus={scrollToSearch}
+					className="px-4 h-[4.5rem] w-full focus:outline-none border-b border-b-(--border-color) transition duration-800"
+				/>
+				<div
+					className={`absolute inset-x-0 top-0 backdrop-blur-2xl h-[28vh] mask-[linear-gradient(#000,transparent_85%,transparent)] pointer-events-none -z-10 transition-opacity ${hasScrolledPastInput ? "opacity-100" : "opacity-0"}`}
+				></div>
+			</div>
 		</>
 	);
 }

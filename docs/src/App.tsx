@@ -13,7 +13,7 @@ function App() {
 			<SearchProvider>
 				<Header />
 				<Hero />
-				<div className="min-h-screen">
+				<div className="flex flex-col min-h-screen">
 					<SearchBar />
 					<IconGrid />
 				</div>
