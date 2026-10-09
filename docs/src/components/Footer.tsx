@@ -1,5 +1,6 @@
 import { Moon, Sun } from "@astroicons/react";
 import { DOCUMENTATION_URL, FIGMA_URL, REPO_URL } from "../lib/constants";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Footer() {
 	return (
@@ -17,6 +18,8 @@ export default function Footer() {
 				</div>
 			</p>
 			<p className="flex gap-2">
+				<ThemeToggle />
+				<span>·</span>
 				<a href={DOCUMENTATION_URL} target="_blank" className="hover:underline">
 					Documentation
 				</a>

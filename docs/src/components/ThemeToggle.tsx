@@ -15,7 +15,7 @@ export default function ThemeToggle() {
 	return (
 		<button
 			type="button"
-			className="p-2 text-sm"
+			className="hover:underline cursor-pointer"
 			onClick={() => setTheme(nextTheme)}
 		>
 			{capitalize(nextTheme)}

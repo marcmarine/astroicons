@@ -1,7 +1,6 @@
 import { Moon, Sun } from "@astroicons/react";
 import { REPO_URL } from "../lib/constants";
 import { usePanel } from "../stores/panel";
-import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
 	const focusSearch = usePanel((s) => s.focusSearch);
@@ -18,7 +17,6 @@ export default function Header() {
 				</div>
 			</div>
 			<div className="flex gap-2">
-				<ThemeToggle />
 				<a
 					href={REPO_URL}
 					className="p-2 text-sm hover:underline"
