@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useKeyboardShortcuts } from "../hooks/useKeyboardShortcuts";
-import { useSearch } from "../hooks/useSearch";
+import { searchInputRef, usePanel } from "../stores/panel";
 
 export default function SearchBar() {
-	const { query, handleChange, inputRef, scrollToSearch, focusSearch } =
-		useSearch();
+	const query = usePanel((s) => s.query);
+	const setQuery = usePanel((s) => s.setQuery);
+	const scrollToSearch = usePanel((s) => s.scrollToSearch);
+	const focusSearch = usePanel((s) => s.focusSearch);
 	const scrollMarkerRef = useRef<HTMLSpanElement>(null);
 	const [hasScrolledPastInput, setHasScrolledPastInput] = useState(false);
 
@@ -37,21 +39,21 @@ export default function SearchBar() {
 				aria-hidden="true"
 				className="block h-px -mb-px"
 			/>
-			<div className="sticky top-0 z-10">
+			<div className="sticky top-0 z-40">
 				<input
-					ref={inputRef}
+					ref={searchInputRef}
 					type="text"
 					placeholder="Search..."
 					value={query}
 					onChange={(event) => {
-						handleChange(event);
+						setQuery(event.target.value);
 						scrollToSearch();
 					}}
 					onFocus={scrollToSearch}
 					className="px-4 h-[4.5rem] w-full focus:outline-none border-b border-b-(--border-color) transition duration-800"
 				/>
 				<div
-					className={`absolute inset-x-0 top-0 backdrop-blur-2xl h-[28vh] mask-[linear-gradient(#000,transparent_85%,transparent)] pointer-events-none -z-10 transition-opacity ${hasScrolledPastInput ? "opacity-100" : "opacity-0"}`}
+					className={`absolute inset-x-0 top-0 backdrop-blur-2xl h-[24vh] mask-[linear-gradient(#000,transparent_85%,transparent)] pointer-events-none -z-10 transition-opacity ${hasScrolledPastInput ? "opacity-100" : "opacity-0"}`}
 				></div>
 			</div>
 		</>

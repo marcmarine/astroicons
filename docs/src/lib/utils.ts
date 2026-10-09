@@ -4,6 +4,14 @@ export function scrollToToolbar(toolbar: HTMLElement | null) {
 	toolbar?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+export const slugify = (s: string) => s.toLowerCase().replace(/\s+/g, "-");
+
+export function scrollToCategory(category: string) {
+	document
+		.getElementById(slugify(category))
+		?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function formatSvg(svg: string): string {
 	const indent = "  ";
 	return svg

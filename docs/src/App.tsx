@@ -3,23 +3,24 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import IconGrid from "./components/IconGrid";
+import OptionsPanel from "./components/OptionsPanel";
 import SearchBar from "./components/SearchBar";
 import StarField from "./components/StarField";
-import { SearchProvider } from "./hooks/useSearch";
 
 function App() {
 	return (
 		<Router>
-			<SearchProvider>
-				<Header />
-				<Hero />
-				<div className="flex flex-col min-h-screen">
-					<SearchBar />
+			<Header />
+			<Hero />
+			<div className="flex flex-col min-h-screen">
+				<SearchBar />
+				<div className="flex flex-1">
+					<OptionsPanel />
 					<IconGrid />
 				</div>
-				<StarField />
-				<Footer />
-			</SearchProvider>
+			</div>
+			<StarField />
+			<Footer />
 		</Router>
 	);
 }

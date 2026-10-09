@@ -1,10 +1,10 @@
 import { Moon, Sun } from "@astroicons/react";
-import { useSearch } from "../hooks/useSearch";
 import { REPO_URL } from "../lib/constants";
+import { usePanel } from "../stores/panel";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
-	const { focusSearch } = useSearch();
+	const focusSearch = usePanel((s) => s.focusSearch);
 
 	return (
 		<header className="px-4 py-3 flex items-center justify-between border-b border-b-(--border-color)">

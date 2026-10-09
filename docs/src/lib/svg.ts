@@ -1,3 +1,5 @@
+import type { IconOptionValues } from "../stores/icon-options";
+
 const svgModules = import.meta.glob("../../../icons/*.svg", {
 	eager: true,
 	query: "?raw",
@@ -14,6 +16,27 @@ const svgByName = Object.fromEntries(
 
 export function getIconSvg(name: string): string {
 	return svgByName[name] ?? "";
+}
+
+export function customizeSvg(svg: string, options: IconOptionValues): string {
+	const { size, strokeWidth, color, rounded } = options;
+
+	return svg.replace(/<svg\b[^>]*>/, (tag) => {
+		let root = tag
+			.replace(/\swidth="[^"]*"/, ` width="${size}"`)
+			.replace(/\sheight="[^"]*"/, ` height="${size}"`)
+			.replace(/\sstroke="[^"]*"/, ` stroke="${color ?? "currentColor"}"`)
+			.replace(/\sstroke-width="[^"]*"/, ` stroke-width="${strokeWidth}"`);
+
+		if (rounded) {
+			root = root.replace(
+				/>$/,
+				' stroke-linecap="round" stroke-linejoin="round">',
+			);
+		}
+
+		return root;
+	});
 }
 
 export function toSvgDataUrl(svg: string): string {

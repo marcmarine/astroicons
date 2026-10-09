@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { copyPngToClipboard, downloadPng } from "../lib/actions";
 import { icons } from "../lib/icons";
-import { getIconSvg, toSvgDataUrl } from "../lib/svg";
+import { customizeSvg, getIconSvg, toSvgDataUrl } from "../lib/svg";
 import { formatSvg } from "../lib/utils";
+import { useIconOptionValues, useIconProps } from "../stores/icon-options";
 import ActionButton from "./ActionButton";
 
 import "va-code-block";
@@ -21,6 +22,8 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 		label: string;
 	} | null>(null);
 	const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
+	const iconOptions = useIconOptionValues();
+	const { size: _size, ...iconProps } = useIconProps();
 
 	useEffect(() => {
 		return () => {
@@ -35,8 +38,9 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 
 	const prev = index > 0 ? icons[index - 1] : null;
 	const next = index < icons.length - 1 ? icons[index + 1] : null;
-	const svg = getIconSvg(icon.name);
-	if (!svg) return null;
+	const rawSvg = getIconSvg(icon.name);
+	if (!rawSvg) return null;
+	const svg = customizeSvg(rawSvg, iconOptions);
 
 	const close = () => navigate("/");
 
@@ -84,10 +88,10 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 	];
 
 	return (
-		<div className="p-4 flex flex-wrap gap-4 rounded-lg border border-(--border-color) backdrop-blur-xl max-h-[calc(100vh-1rem)] relative">
+		<div className="p-4 flex flex-wrap gap-4 max-h-[calc(100vh-1rem)] relative">
 			<div className="w-full sm:flex-1 flex flex-col gap-3 sm:max-w-xs">
 				<div className="p-2 border border-(--border-color) rounded-md flex items-center justify-center aspect-square">
-					<Icon name={icon.name as IconName} size="100%" strokeWidth={1.5} />
+					<Icon name={icon.name as IconName} {...iconProps} size="100%" />
 				</div>
 			</div>
 			<div className="flex-1 flex flex-wrap relative">
