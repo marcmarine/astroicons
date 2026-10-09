@@ -5,10 +5,13 @@ import Customize from "./Customize";
 
 export default function OptionsPanel() {
 	const showFilters = usePanel((s) => s.showFilters);
+	const scrollToSearch = usePanel((s) => s.scrollToSearch);
 
 	return (
 		<aside
 			inert={!showFilters || undefined}
+			onPointerDown={scrollToSearch}
+			onFocus={scrollToSearch}
 			className={[
 				"px-1 py-2 h-auto z-20 transition ease-in-out -translate-x-full opacity-0 blur-3xl not-md:hidden",
 				showFilters && "translate-x-0 opacity-100 blur-none",

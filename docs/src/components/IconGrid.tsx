@@ -102,7 +102,7 @@ export default function IconGrid() {
 
 function IconList({ icons }: { icons: IconData[] }) {
 	return (
-		<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 gap-2">
+		<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2">
 			{icons.map((icon) => (
 				<IconCard key={icon.name} name={icon.name} />
 			))}
