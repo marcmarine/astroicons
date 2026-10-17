@@ -4,8 +4,8 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import IconGrid from "./components/IconGrid";
 import OptionsPanel from "./components/OptionsPanel";
-import SearchBar from "./components/SearchBar";
 import StarField from "./components/StarField";
+import Toolbar from "./components/Toolbar";
 
 function App() {
 	return (
@@ -13,7 +13,7 @@ function App() {
 			<Header />
 			<Hero />
 			<div className="flex flex-col min-h-screen">
-				<SearchBar />
+				<Toolbar />
 				<div className="flex flex-1">
 					<OptionsPanel />
 					<IconGrid />

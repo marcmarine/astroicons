@@ -19,7 +19,7 @@ export default function OptionsPanel() {
 				.filter(Boolean)
 				.join(" ")}
 		>
-			<div className="sticky top-20 border border-(--border-color) rounded-lg bg-white/1">
+			<div className="sticky top-22 border border-(--border-color) rounded-lg bg-white/1">
 				<Customize />
 				<CategoryFilter categories={categories.map((c) => c.name)} />
 			</div>
