@@ -1,3 +1,5 @@
+import { strToU8, zipSync } from "fflate";
+
 async function svgToPngBlob(svg: string, scale = 2): Promise<Blob> {
 	const svgBlob = new Blob([svg], {
 		type: "image/svg+xml;charset=utf-8",
@@ -34,9 +36,7 @@ async function svgToPngBlob(svg: string, scale = 2): Promise<Blob> {
 	return blob;
 }
 
-export async function downloadPng(svg: string, filename: string) {
-	const blob = await svgToPngBlob(svg);
-
+function downloadBlob(blob: Blob, filename: string) {
 	const url = URL.createObjectURL(blob);
 
 	const a = document.createElement("a");
@@ -45,6 +45,41 @@ export async function downloadPng(svg: string, filename: string) {
 	a.click();
 
 	URL.revokeObjectURL(url);
+}
+
+export type IconFormat = "svg" | "png";
+
+async function encodeIcon(svg: string, format: IconFormat) {
+	return format === "svg"
+		? strToU8(svg)
+		: new Uint8Array(await (await svgToPngBlob(svg)).arrayBuffer());
+}
+
+export async function downloadIcon(
+	svg: string,
+	name: string,
+	format: IconFormat,
+) {
+	const blob =
+		format === "svg"
+			? new Blob([svg], { type: "image/svg+xml;charset=utf-8" })
+			: await svgToPngBlob(svg);
+	downloadBlob(blob, `${name}.${format}`);
+}
+
+export async function downloadIconsZip(
+	svgs: Record<string, string>,
+	format: IconFormat,
+	filename: string,
+) {
+	const entries = await Promise.all(
+		Object.entries(svgs).map(
+			async ([name, svg]) =>
+				[`${name}.${format}`, await encodeIcon(svg, format)] as const,
+		),
+	);
+	const zip = zipSync(Object.fromEntries(entries));
+	downloadBlob(new Blob([zip], { type: "application/zip" }), `${filename}.zip`);
 }
 
 export async function copyPngToClipboard(svg: string) {

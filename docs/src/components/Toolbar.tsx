@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFilteredIcons } from "../hooks/useFilteredIcons";
 import { useIconOptionValues } from "../stores/icon-options";
 import { toolbarMarkerRef, toolbarRef } from "../stores/panel";
+import DownloadButton from "./DownloadButton";
 import SearchInput from "./SearchInput";
 
 export default function Toolbar() {
@@ -34,7 +35,10 @@ export default function Toolbar() {
 				ref={toolbarRef}
 				className="sticky top-0 z-40 border-b border-b-(--border-color) transition duration-800"
 			>
-				<SearchInput />
+				<div className="flex items-center">
+					<SearchInput />
+					<DownloadButton />
+				</div>
 				<div className="px-4 pb-2 flex md:items-center flex-col md:flex-row justify-between gap-1">
 					<p className="text-[10px] font-mono opacity-60">
 						{filteredIcons.length === 0

@@ -7,12 +7,14 @@ interface ActionButtonOption {
 }
 
 interface ActionButtonProps {
+	label: string;
 	options: ActionButtonOption[];
 	defaultOptionId?: string;
 	onOptionChange?: (id: string) => void;
 }
 
 export default function ActionButton({
+	label,
 	options,
 	defaultOptionId,
 	onOptionChange,
@@ -41,7 +43,6 @@ export default function ActionButton({
 	function selectOption(option: ActionButtonOption) {
 		setSelectedId(option.id);
 		setOpen(false);
-		option.onSelect?.();
 		onOptionChange?.(option.id);
 	}
 
@@ -56,7 +57,7 @@ export default function ActionButton({
 				onClick={handleMainClick}
 				className="px-3 py-2 text-sm rounded-l bg-(--color-primary) hover:bg-(--color-primary)/80 active:bg-(--color-primary)/90 text-(--color-base-inverted) font-bold uppercase"
 			>
-				{selectedOption?.label}
+				{label}
 			</button>
 
 			<button
@@ -64,9 +65,10 @@ export default function ActionButton({
 				onClick={() => setOpen((v) => !v)}
 				aria-haspopup="listbox"
 				aria-expanded={open}
-				aria-label="More options"
-				className="p-2 text-sm rounded-r bg-(--color-primary) hover:bg-(--color-primary)/80 active:bg-(--color-primary)/90 text-(--color-base-inverted)"
+				aria-label="Format"
+				className="pl-3 pr-2 py-2 inline-flex items-center gap-1 text-sm rounded-r bg-(--color-primary) hover:bg-(--color-primary)/80 active:bg-(--color-primary)/90 text-(--color-base-inverted) font-bold uppercase"
 			>
+				{selectedOption?.label}
 				<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
 					<title>Caret</title>
 					<path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path>
