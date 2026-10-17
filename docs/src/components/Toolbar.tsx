@@ -1,16 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFilteredIcons } from "../hooks/useFilteredIcons";
 import { useIconOptionValues } from "../stores/icon-options";
+import { toolbarMarkerRef, toolbarRef } from "../stores/panel";
 import SearchInput from "./SearchInput";
 
 export default function Toolbar() {
 	const { searchTerm, filteredIcons } = useFilteredIcons();
 	const { size, strokeWidth, color, rounded } = useIconOptionValues();
-	const scrollMarkerRef = useRef<HTMLSpanElement>(null);
 	const [hasScrolledPastInput, setHasScrolledPastInput] = useState(false);
 
 	useEffect(() => {
-		const marker = scrollMarkerRef.current;
+		const marker = toolbarMarkerRef.current;
 		if (!marker) return;
 
 		const observer = new IntersectionObserver(([entry]) => {
@@ -26,11 +26,14 @@ export default function Toolbar() {
 	return (
 		<>
 			<span
-				ref={scrollMarkerRef}
+				ref={toolbarMarkerRef}
 				aria-hidden="true"
 				className="block h-px -mb-px"
 			/>
-			<div className="sticky top-0 z-40 border-b border-b-(--border-color) transition duration-800">
+			<div
+				ref={toolbarRef}
+				className="sticky top-0 z-40 border-b border-b-(--border-color) transition duration-800"
+			>
 				<SearchInput />
 				<div className="px-4 pb-2 flex md:items-center flex-col md:flex-row justify-between gap-1">
 					<p className="text-[10px] font-mono opacity-60">

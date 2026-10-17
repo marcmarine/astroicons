@@ -10,10 +10,14 @@ interface IconCardProps {
 
 export default function IconCard({ name }: IconCardProps) {
 	const highlight = usePanel((s) => s.query.trim());
+	const scrollToIcon = usePanel((s) => s.scrollToIcon);
 	const iconProps = useIconProps();
 	const [isSelected] = useRoute(`/${name}`);
 	return (
-		<Link href={isSelected ? "/" : `/${name}`}>
+		<Link
+			href={isSelected ? "/" : `/${name}`}
+			onClick={(event) => scrollToIcon(event.currentTarget)}
+		>
 			<div className="flex flex-col items-center gap-4 rounded-lg bg-black/2 dark:bg-white/1 p-4 border border-(--border-color) aspect-square overflow-hidden transition-all duration-400 cursor-pointer hover:bg-black/4 dark:hover:bg-white/4">
 				<Icon
 					name={name as IconName}
