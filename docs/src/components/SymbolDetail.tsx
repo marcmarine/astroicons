@@ -2,7 +2,7 @@ import { Icon, type IconName } from "@astroicons/react/icon";
 import { useEffect, useRef, useState } from "react";
 
 import { useLocation } from "wouter";
-import { copyPngToClipboard } from "../lib/actions";
+import { copyPngToClipboard, downloadIcon } from "../lib/actions";
 import { icons } from "../lib/icons";
 import { customizeSvg, getIconSvg, toSvgDataUrl } from "../lib/svg";
 import { formatSvg } from "../lib/utils";
@@ -17,7 +17,10 @@ interface SymbolDetailProps {
 
 export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 	const [, navigate] = useLocation();
-	const [feedback, setFeedback] = useState<string | null>(null);
+	const [feedback, setFeedback] = useState<{
+		id: string;
+		label: string;
+	} | null>(null);
 	const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 	const iconOptions = useIconOptionValues();
 	const { size: _size, ...iconProps } = useIconProps();
@@ -41,35 +44,52 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 
 	const close = () => navigate("/");
 
-	function showFeedback(label: string) {
-		setFeedback(label);
+	function showFeedback(id: string, label: string) {
+		setFeedback({ id, label });
 		if (timeoutRef.current) clearTimeout(timeoutRef.current);
 		timeoutRef.current = setTimeout(() => setFeedback(null), 1500);
 	}
 
 	const options = [
 		{
-			id: "svg",
-			label: "SVG",
+			id: "copy-svg",
+			label: feedback?.id === "copy-svg" ? feedback.label : "Copy SVG",
 			onSelect: () => {
 				navigator.clipboard.writeText(svg);
-				showFeedback("Copied!");
+				showFeedback("copy-svg", "Copied!");
 			},
 		},
 		{
-			id: "data-url",
-			label: "Data URL",
+			id: "copy-data-url",
+			label:
+				feedback?.id === "copy-data-url" ? feedback.label : "Copy Data URL",
 			onSelect: () => {
 				navigator.clipboard.writeText(toSvgDataUrl(svg));
-				showFeedback("Copied!");
+				showFeedback("copy-data-url", "Copied!");
 			},
 		},
 		{
-			id: "png",
-			label: "PNG",
+			id: "copy-png",
+			label: feedback?.id === "copy-png" ? feedback.label : "Copy PNG",
 			onSelect: () => {
 				copyPngToClipboard(svg);
-				showFeedback("Copied!");
+				showFeedback("copy-png", "Copied!");
+			},
+		},
+		{
+			id: "download-svg",
+			label: feedback?.id === "download-svg" ? feedback.label : "Download SVG",
+			onSelect: () => {
+				showFeedback("download-svg", "Downloading...");
+				downloadIcon(svg, symbol, "svg");
+			},
+		},
+		{
+			id: "download-png",
+			label: feedback?.id === "download-png" ? feedback.label : "Download PNG",
+			onSelect: () => {
+				showFeedback("download-png", "Downloading...");
+				downloadIcon(svg, symbol, "png");
 			},
 		},
 	];
@@ -118,11 +138,7 @@ export default function SymbolDetail({ symbol }: SymbolDetailProps) {
 							Next
 						</button>
 					</div>
-					<ActionButton
-						label={feedback ?? "Copy"}
-						options={options}
-						defaultOptionId="svg"
-					/>
+					<ActionButton options={options} defaultOptionId="copy-svg" />
 				</div>
 			</div>
 		</div>

@@ -1,11 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useRoute } from "wouter";
 import { useFilteredIcons } from "../hooks/useFilteredIcons";
-import {
-	downloadIcon,
-	downloadIconsZip,
-	type IconFormat,
-} from "../lib/actions";
+import { downloadIconsZip, type IconFormat } from "../lib/actions";
 import { icons } from "../lib/icons";
 import { customizeSvg, getIconSvg } from "../lib/svg";
 import { useIconOptionValues } from "../stores/icon-options";
@@ -13,8 +8,6 @@ import { useIconOptionValues } from "../stores/icon-options";
 const formats: IconFormat[] = ["svg", "png"];
 
 export default function DownloadButton() {
-	const [, params] = useRoute("/:symbol");
-	const selected = params?.symbol !== "categories" ? params?.symbol : undefined;
 	const { filteredIcons } = useFilteredIcons();
 	const iconOptions = useIconOptionValues();
 	const isFiltered = filteredIcons.length !== icons.length;
@@ -38,24 +31,16 @@ export default function DownloadButton() {
 
 	const label = busy
 		? "Downloading..."
-		: selected
-			? `Download ${selected}`
-			: isFiltered
-				? `Download ${filteredIcons.length}`
-				: "Download all";
+		: isFiltered
+			? `Download ${filteredIcons.length}`
+			: "Download all";
 
 	async function handleClick() {
 		setBusy(true);
+		const minDuration = new Promise((resolve) => setTimeout(resolve, 1000));
 		try {
-			if (selected) {
-				await downloadIcon(
-					customizeSvg(getIconSvg(selected), iconOptions),
-					selected,
-					format,
-				);
-				return;
-			}
-
+			// Let the busy label paint before the zip work blocks the main thread
+			await new Promise((resolve) => setTimeout(resolve));
 			const svgs = Object.fromEntries(
 				filteredIcons.map((icon) => [
 					icon.name,
@@ -67,12 +52,13 @@ export default function DownloadButton() {
 				format,
 				`${isFiltered ? "astroicons-filtered" : "astroicons"}-${format}`,
 			);
+			await minDuration;
 		} finally {
 			setBusy(false);
 		}
 	}
 
-	const disabled = busy || (!selected && filteredIcons.length === 0);
+	const disabled = busy || filteredIcons.length === 0;
 
 	return (
 		<div
