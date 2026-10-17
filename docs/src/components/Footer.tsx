@@ -20,15 +20,30 @@ export default function Footer() {
 			<p className="flex gap-2">
 				<ThemeToggle />
 				<span>·</span>
-				<a href={DOCUMENTATION_URL} target="_blank" className="hover:underline">
+				<a
+					href={DOCUMENTATION_URL}
+					target="_blank"
+					className="hover:underline"
+					rel="noopener"
+				>
 					Documentation
 				</a>
 				<span>·</span>
-				<a href={FIGMA_URL} target="_blank" className="hover:underline">
+				<a
+					href={FIGMA_URL}
+					target="_blank"
+					className="hover:underline"
+					rel="noopener"
+				>
 					Figma
 				</a>
 				<span>·</span>
-				<a href={REPO_URL} target="_blank" className="hover:underline">
+				<a
+					href={REPO_URL}
+					target="_blank"
+					className="hover:underline"
+					rel="noopener"
+				>
 					GitHub
 				</a>
 			</p>

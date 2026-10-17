@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useRoute } from "wouter";
 import { useFilteredIcons } from "../hooks/useFilteredIcons";
-import { downloadIcon, downloadIconsZip, type IconFormat } from "../lib/actions";
+import {
+	downloadIcon,
+	downloadIconsZip,
+	type IconFormat,
+} from "../lib/actions";
 import { icons } from "../lib/icons";
 import { customizeSvg, getIconSvg } from "../lib/svg";
 import { useIconOptionValues } from "../stores/icon-options";
@@ -101,28 +105,29 @@ export default function DownloadButton() {
 			</button>
 
 			{open && (
-				<ul
+				<div
 					role="listbox"
-					className="mt-1 p-1 absolute w-24 -right-1 top-full bg-(--color-base-inverted) rounded-md z-10 space-y-0.5"
+					className="mt-1 p-1 absolute w-24 -right-1 top-full bg-(--color-base-inverted) rounded-md z-10 flex flex-col gap-0.5"
 				>
 					{formats.map((option) => {
 						const isSelected = option === format;
 						return (
-							<li key={option} role="option" aria-selected={isSelected}>
-								<button
-									type="button"
-									onClick={() => {
-										setFormat(option);
-										setOpen(false);
-									}}
-									className={`w-full text-left px-3 py-2 text-sm rounded-sm focus-visible:outline-none uppercase ${isSelected ? "bg-(--color-primary)/90 text-(--color-base-inverted) font-bold" : "hover:bg-black/8 dark:hover:bg-white/8"}`}
-								>
-									{option}
-								</button>
-							</li>
+							<button
+								key={option}
+								type="button"
+								role="option"
+								aria-selected={isSelected}
+								onClick={() => {
+									setFormat(option);
+									setOpen(false);
+								}}
+								className={`w-full text-left px-3 py-2 text-sm rounded-sm focus-visible:outline-none uppercase ${isSelected ? "bg-(--color-primary)/90 text-(--color-base-inverted) font-bold" : "hover:bg-black/8 dark:hover:bg-white/8"}`}
+							>
+								{option}
+							</button>
 						);
 					})}
-				</ul>
+				</div>
 			)}
 		</div>
 	);

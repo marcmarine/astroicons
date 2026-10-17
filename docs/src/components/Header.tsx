@@ -21,6 +21,7 @@ export default function Header() {
 					href={REPO_URL}
 					className="p-2 text-sm hover:underline"
 					target="_blank"
+					rel="noopener"
 				>
 					GitHub
 				</a>

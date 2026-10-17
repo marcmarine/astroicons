@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-import type { JSX } from "react";
+export {};
 
 declare module "react" {
 	namespace JSX {

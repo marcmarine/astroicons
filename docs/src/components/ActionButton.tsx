@@ -76,25 +76,26 @@ export default function ActionButton({
 			</button>
 
 			{open && (
-				<ul
+				<div
 					role="listbox"
-					className="mb-1 p-1 absolute w-40 -right-1 bottom-full bg-(--color-base-inverted) rounded-md z-10 space-y-0.5"
+					className="mb-1 p-1 absolute w-40 -right-1 bottom-full bg-(--color-base-inverted) rounded-md z-10 flex flex-col gap-0.5"
 				>
 					{options.map((option) => {
 						const isSelected = option.id === selectedId;
 						return (
-							<li key={option.id} role="option" aria-selected={isSelected}>
-								<button
-									type="button"
-									onClick={() => selectOption(option)}
-									className={`w-full text-left px-3 py-2 text-sm rounded-sm focus-visible:outline-none uppercase ${isSelected ? "bg-(--color-primary)/90 text-(--color-base-inverted) font-bold" : "hover:bg-black/8 dark:hover:bg-white/8"}`}
-								>
-									{option.label}
-								</button>
-							</li>
+							<button
+								key={option.id}
+								type="button"
+								role="option"
+								aria-selected={isSelected}
+								onClick={() => selectOption(option)}
+								className={`w-full text-left px-3 py-2 text-sm rounded-sm focus-visible:outline-none uppercase ${isSelected ? "bg-(--color-primary)/90 text-(--color-base-inverted) font-bold" : "hover:bg-black/8 dark:hover:bg-white/8"}`}
+							>
+								{option.label}
+							</button>
 						);
 					})}
-				</ul>
+				</div>
 			)}
 		</div>
 	);

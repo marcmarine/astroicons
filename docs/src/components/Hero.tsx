@@ -23,6 +23,7 @@ export default function Hero() {
 					href={DOCUMENTATION_URL}
 					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/6 dark:active:bg-white/8 transition active:duration-0"
 					target="_blank"
+					rel="noopener"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +46,7 @@ export default function Hero() {
 					href={FIGMA_URL}
 					className="p-2 flex items-center gap-2 rounded bg-black/4 hover:bg-black/10 active:bg-black/6 dark:bg-white/4 dark:hover:bg-white/6 dark:active:bg-white/8 transition active:duration-0"
 					target="_blank"
+					rel="noopener"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
