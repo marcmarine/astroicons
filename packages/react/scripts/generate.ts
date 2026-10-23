@@ -22,10 +22,23 @@ const toPascalCase = (str: string) =>
 		.map((s) => s[0].toUpperCase() + s.slice(1))
 		.join("");
 
+const toReactAttribute = (attr: string) =>
+	/^(data|aria)-/.test(attr)
+		? attr
+		: attr.replace(/-([a-z])/g, (_, char: string) => char.toUpperCase());
+
+const toReactAttributes = (attributes: Record<string, string>) =>
+	Object.fromEntries(
+		Object.entries(attributes).map(([attr, value]) => [
+			toReactAttribute(attr),
+			value,
+		]),
+	);
+
 const toIconNode = ({ name, attributes, children }: INode): IconNodeElement =>
 	children.length > 0
-		? [name, attributes, children.map(toIconNode)]
-		: [name, attributes];
+		? [name, toReactAttributes(attributes), children.map(toIconNode)]
+		: [name, toReactAttributes(attributes)];
 
 const hashSvg = (svg: string) =>
 	`sha256:${createHash("sha256").update(svg).digest("hex")}`;
