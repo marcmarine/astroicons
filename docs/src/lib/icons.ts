@@ -51,9 +51,13 @@ export const categories: Category[] = [
 		items: [
 			ASPECTS.CONJUNCTION,
 			"semi-sextile",
+			"semi-square",
 			ASPECTS.SEXTILE,
+			"quintile",
 			ASPECTS.SQUARE,
 			ASPECTS.TRINE,
+			"sesqui-square",
+			"biquintile",
 			ASPECTS.QUINCUNX,
 			ASPECTS.OPPOSITION,
 		],
