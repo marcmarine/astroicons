@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/marcmarine/astroicons/compare/react-v0.3.0...react-v0.4.0) (2026-10-23)
+
+
+### Features
+
+* Add minor aspect icons ([4663a37](https://github.com/marcmarine/astroicons/commit/4663a3747434c590ca2bdd6976cab490f26dca06))
+
+
+### Bug Fixes
+
+* Use camelCase SVG attributes in React icons ([2cf9800](https://github.com/marcmarine/astroicons/commit/2cf9800d884936f5ac62448a29ef49d579fe016c))
+
 ## [0.3.0](https://github.com/marcmarine/astroicons/compare/react-v0.2.2...react-v0.3.0) (2026-09-27)
 
 
