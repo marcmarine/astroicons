@@ -1,0 +1,95 @@
+# Astroicons
+
+> Astroicons is an open-source (MIT) set of SVG icons for astronomical and astrological symbols: planets, zodiac signs, aspects, angles, houses, nodes, asteroids and lots. Icons are distributed as raw SVG files and as React components through the `@astroicons/react` package.
+
+All icons are drawn on a 24×24 grid, use `fill="none"`, `stroke="currentColor"` and a `1px` stroke by default, so they inherit the surrounding text color.
+
+## Docs
+
+- [README](https://raw.githubusercontent.com/marcmarine/astroicons/main/README.md): Project overview, installation, usage and props
+- [@astroicons/react README](https://raw.githubusercontent.com/marcmarine/astroicons/main/packages/react/README.md): React package documentation
+- [Changelog](https://raw.githubusercontent.com/marcmarine/astroicons/main/packages/react/CHANGELOG.md): Release history of `@astroicons/react`
+- [Icon browser](https://astroicons.com): Search, preview, customize and download every icon
+
+## React usage
+
+Install:
+
+```bash
+npm install @astroicons/react
+```
+
+Requires `react >= 18`.
+
+Import icons individually (tree-shakeable, recommended):
+
+```tsx
+import { Sun, Conjunction, Moon } from '@astroicons/react'
+
+export function Chart() {
+  return (
+    <>
+      <Sun />
+      <Conjunction size={16} />
+      <Moon color="tomato" strokeWidth={1.5} />
+    </>
+  )
+}
+```
+
+A single icon can also be imported from its own entry point: `import Sun from '@astroicons/react/icons/sun'`.
+
+Render an icon dynamically by name (loads the full registry; use only when the name is resolved at runtime):
+
+```tsx
+import { Icon, type IconName } from '@astroicons/react/icon'
+
+export function Symbol({ name }: { name: IconName }) {
+  return <Icon name={name} />
+}
+```
+
+`Icon` renders `null` (and warns outside production) when the name is not in the registry.
+
+### Props
+
+Every icon component forwards its `ref` to the `<svg>` element and accepts:
+
+| Prop          | Type                           | Default          |
+| ------------- | ------------------------------ | ---------------- |
+| `size`        | `string \| number`             | `24`             |
+| `color`       | `string`                       | `'currentColor'` |
+| `strokeWidth` | `string \| number`             | `1`              |
+| `className`   | `string`                       | —                |
+| `...rest`     | `SVGAttributes<SVGSVGElement>` | —                |
+
+`size` sets both `width` and `height`; `color` sets the `stroke`.
+
+### Exports
+
+- `@astroicons/react`: one named PascalCase component per icon, plus `createIcon` and the types `IconProps`, `IconNode`
+- `@astroicons/react/icon`: the `Icon` component and the `IconName` union type
+- `@astroicons/react/icons/<icon-name>`: default export of a single icon
+
+## Icons
+
+Icon names are kebab-case (used for SVG file names, `IconName` and `/icons/<name>` imports). React component names are the PascalCase form (e.g. `north-node` → `NorthNode`, `house-1` → `House1`).
+
+- Planets: `sun`, `moon`, `mercury`, `venus`, `mars`, `jupiter`, `saturn`, `uranus`, `neptune`, `pluto`
+- Signs: `aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo`, `libra`, `scorpio`, `sagittarius`, `capricorn`, `aquarius`, `pisces`
+- Aspects (by degree): `conjunction` (0°), `semi-sextile` (30°), `semi-square` (45°), `sextile` (60°), `quintile` (72°), `square` (90°), `trine` (120°), `sesqui-square` (135°), `biquintile` (144°), `quincunx` (150°), `opposition` (180°)
+- Angles: `ascendant`, `descendant`, `medium-coeli`, `imum-coeli`, `ascendant-alt`, `descendant-alt`
+- Houses: `house-1` … `house-12`
+- Earth and Moon: `earth`, `north-node`, `south-node`, `lilith`
+- Asteroids: `chiron`
+- Lots: `fortune`
+
+## SVG files
+
+- [Raw SVGs](https://github.com/marcmarine/astroicons/tree/main/icons): One file per icon at `icons/<icon-name>.svg`, e.g. `https://raw.githubusercontent.com/marcmarine/astroicons/main/icons/sun.svg`
+
+## Optional
+
+- [Figma file](https://www.figma.com/community/file/1657106925519986163/astroicons): Source design file
+- [Symbol reference](https://github.com/marcmarine/western-signs#symbols): Meaning of the Western astrology symbols
+- [GitHub repository](https://github.com/marcmarine/astroicons): Source code, issues and contributions
