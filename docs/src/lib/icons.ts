@@ -94,7 +94,8 @@ export const categories: Category[] = [
 	{
 		name: "Earth and moon",
 		items: ["earth", "north-node", "south-node", "lilith"],
-	},
+  },
+  { name: 'Modalities', items: ['cardinal', 'fixed', 'mutable'] },
 	{
 		name: "Asteroids",
 		items: ["chiron"],
