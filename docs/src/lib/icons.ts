@@ -45,7 +45,8 @@ export const categories: Category[] = [
 			SIGNS.AQUARIUS,
 			SIGNS.PISCES,
 		],
-	},
+  },
+	{ name: 'Extra signs', items: ['ophiuchus']},
 	{
 		name: "Aspects",
 		items: [
