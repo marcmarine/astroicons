@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0](https://github.com/marcmarine/astroicons/compare/react-v0.4.0...react-v0.5.0) (2026-11-02)
+
+
+### Features
+
+* Add cardinal fixed and mutable icons ([0ee3a7a](https://github.com/marcmarine/astroicons/commit/0ee3a7ae5178455e470dfd6132e69c3910aacab1))
+* Add Ophiuchus icon ([7f4e7ef](https://github.com/marcmarine/astroicons/commit/7f4e7ef7b936c20bf7d049288762035d116e08ef))
+
 ## [0.4.0](https://github.com/marcmarine/astroicons/compare/react-v0.3.0...react-v0.4.0) (2026-10-23)
 
 
