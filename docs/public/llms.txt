@@ -77,7 +77,7 @@ Icon names are kebab-case (used for SVG file names, `IconName` and `/icons/<name
 
 - Planets: `sun`, `moon`, `mercury`, `venus`, `mars`, `jupiter`, `saturn`, `uranus`, `neptune`, `pluto`
 - Signs: `aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo`, `libra`, `scorpio`, `sagittarius`, `capricorn`, `aquarius`, `pisces`
-- Aspects (by degree): `conjunction` (0°), `semi-sextile` (30°), `semi-square` (45°), `sextile` (60°), `quintile` (72°), `square` (90°), `trine` (120°), `sesqui-square` (135°), `biquintile` (144°), `quincunx` (150°), `opposition` (180°)
+- Aspects (by degree): `conjunction` (0°), `semi-sextile` (30°), `semi-square` (45°), `sextile` (60°), `quintile` (72°), `square` (90°), `trine` (120°), `sesqui-square` (135°), `bi-quintile` (144°), `quincunx` (150°), `opposition` (180°)
 - Angles: `ascendant`, `descendant`, `medium-coeli`, `imum-coeli`, `ascendant-alt`, `descendant-alt`
 - Houses: `house-1` … `house-12`
 - Earth and Moon: `earth`, `north-node`, `south-node`, `lilith`

@@ -58,7 +58,7 @@ export const categories: Category[] = [
 			ASPECTS.SQUARE,
 			ASPECTS.TRINE,
 			"sesqui-square",
-			"biquintile",
+			"bi-quintile",
 			ASPECTS.QUINCUNX,
 			ASPECTS.OPPOSITION,
 		],
