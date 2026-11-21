@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/marcmarine/astroicons/compare/react-v0.5.0...react-v0.5.1) (2026-11-21)
+
+
+### Bug Fixes
+
+* Rename biquintile icon to bi-quintile ([999cf33](https://github.com/marcmarine/astroicons/commit/999cf334c05c49692374fc8ab1d657b98da96a28))
+
 ## [0.5.0](https://github.com/marcmarine/astroicons/compare/react-v0.4.0...react-v0.5.0) (2026-11-02)
 
 
